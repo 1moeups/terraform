@@ -100,6 +100,7 @@ func (p *Provider) ReadDataSource(req providers.ReadDataSourceRequest) providers
 	}
 
 	// something something call this function dataSourceRemoteStateRead(req.Config)
+	// newState, err := ?
 
 	return res
 }

@@ -32,7 +32,7 @@ func TestState_basic(t *testing.T) {
 		},
 	}
 	for _, test := range tests {
-		err := dataSourceRemoteStateRead(&test.Config)
+		got, err := dataSourceRemoteStateRead(&test.Config)
 
 		if test.Err {
 			if err == nil {
@@ -43,8 +43,8 @@ func TestState_basic(t *testing.T) {
 			t.Fatalf("unexpected error: %s", err)
 		}
 
-		if !test.Config.RawEquals(test.Want) {
-			t.Errorf("wrong result\ngot:  %#v\nwant: %#v", test.Config, test.Want)
+		if !got.RawEquals(test.Want) {
+			t.Errorf("wrong result\ngot:  %#v\nwant: %#v", got, test.Want)
 		}
 	}
 }
